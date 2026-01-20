@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Mail, Linkedin, MapPin, GraduationCap } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import profilePhoto from "@/assets/profile-photo.jpeg";
 
 const Hero = () => {
   return (
@@ -22,7 +23,7 @@ const Hero = () => {
           >
             <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden gradient-border glow">
               <img
-                src="https://media.licdn.com/dms/image/v2/D4D03AQFxJQG6LVqWQA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1719063310609?e=1753315200&v=beta&t=Jl5bsj__XW_rlblGQ1KJMGVGxOPCgMc3LOXHuOmdbWA"
+                src={profilePhoto}
                 alt="Thalison Silva"
                 className="w-full h-full object-cover"
               />
