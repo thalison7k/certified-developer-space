@@ -20,10 +20,12 @@ const Footer = () => {
               href="https://gamatec-digital-spark.lovable.app/auth"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1 text-sm text-primary hover:text-primary/80 transition-colors duration-300"
+              className="group inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-primary/20 to-accent/20 border border-primary/30 hover:border-primary/60 hover:from-primary/30 hover:to-accent/30 transition-all duration-300"
             >
-              <span>Desenvolvido por Gama Tec</span>
-              <ExternalLink className="w-3 h-3" />
+              <span className="text-sm font-medium bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                Desenvolvido por Gama Tec
+              </span>
+              <ExternalLink className="w-3.5 h-3.5 text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" />
             </a>
           </motion.div>
 
