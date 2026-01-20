@@ -1,8 +1,10 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import ThemeToggle from "./ThemeToggle";
 
 const navItems = [
+  { href: "#skills", label: "Skills" },
   { href: "#experiencia", label: "Experiência" },
   { href: "#formacao", label: "Formação" },
   { href: "#certificados", label: "Certificados" },
@@ -47,15 +49,19 @@ const Navigation = () => {
                 {item.label}
               </a>
             ))}
+            <ThemeToggle />
           </div>
 
           {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 text-foreground"
-          >
-            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+          <div className="flex items-center gap-4 md:hidden">
+            <ThemeToggle />
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="p-2 text-foreground"
+            >
+              {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Navigation */}
