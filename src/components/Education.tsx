@@ -16,7 +16,7 @@ const education = [
     period: "ago de 2022 – ago de 2025",
     description: "Curso superior focado em Internet das Coisas (IoT), sistemas distribuídos, desenvolvimento de aplicações conectadas e automação.",
     skills: ["IoT", "Sistemas Embarcados", "Automação", "Cloud Computing"],
-    status: "Em andamento",
+    status: "Concluído",
   },
   {
     institution: "Centro Universitário Braz Cubas",

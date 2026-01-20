@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Linkedin, Mail, Heart } from "lucide-react";
+import { Linkedin, Mail, Heart, ExternalLink } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -10,10 +10,21 @@ const Footer = () => {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="flex items-center gap-2 text-sm text-muted-foreground"
+            className="flex flex-col items-center md:items-start gap-2"
           >
-            <span>© 2025 Thalison Silva. Feito com</span>
-            <Heart className="w-4 h-4 text-red-500 fill-red-500" />
+            <div className="flex items-center gap-2 text-sm text-muted-foreground">
+              <span>© 2025 Thalison Silva. Feito com</span>
+              <Heart className="w-4 h-4 text-red-500 fill-red-500" />
+            </div>
+            <a
+              href="https://gamatec-digital-spark.lovable.app/auth"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1 text-sm text-primary hover:text-primary/80 transition-colors duration-300"
+            >
+              <span>Desenvolvido por Gama Tec</span>
+              <ExternalLink className="w-3 h-3" />
+            </a>
           </motion.div>
 
           <motion.div
