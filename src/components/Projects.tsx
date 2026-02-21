@@ -10,7 +10,8 @@ const projects = [
     solution: "Plataforma web completa com autenticação, templates personalizáveis e deploy automatizado.",
     technologies: ["TypeScript", "React", "Tailwind CSS", "Supabase", "Vite"],
     result: "Plataforma funcional permitindo a criação de sites em minutos, com painel administrativo completo.",
-    github: "https://github.com/thalisonsilva",
+    tags: ["dashboard", "backend", "automação"],
+    github: "https://github.com/thalison7k?tab=repositories",
     demo: "https://gamatec-digital-spark.lovable.app/auth",
   },
   {
@@ -20,7 +21,8 @@ const projects = [
     solution: "Aplicação web full-stack com Django, banco de dados relacional e sistema de autenticação de usuários.",
     technologies: ["Python", "Django", "PostgreSQL", "HTML5", "CSS3", "JavaScript"],
     result: "Sistema funcional com CRUD completo, controle de usuários e histórico de empréstimos.",
-    github: "https://github.com/thalisonsilva",
+    tags: ["backend", "API", "dados"],
+    github: "https://github.com/thalison7k?tab=repositories",
   },
   {
     title: "CorretorEndereco Premium",
@@ -29,7 +31,8 @@ const projects = [
     solution: "Script Python com integração a APIs de geolocalização para validação e padronização automática de endereços.",
     technologies: ["Python", "Pandas", "APIs REST", "Regex", "Excel"],
     result: "Redução de erros de endereçamento e padronização automatizada de bases de dados corporativas.",
-    github: "https://github.com/thalisonsilva",
+    tags: ["automação", "dados", "API"],
+    github: "https://github.com/thalison7k?tab=repositories",
   },
   {
     title: "Tank Guard Dashboard",
@@ -38,7 +41,8 @@ const projects = [
     solution: "Dashboard interativo com visualização de dados em tempo real, alertas configuráveis e histórico de medições.",
     technologies: ["Python", "Power BI", "SQL", "IoT", "Azure"],
     result: "Monitoramento contínuo com alertas automáticos, reduzindo riscos operacionais.",
-    github: "https://github.com/thalisonsilva",
+    tags: ["dashboard", "IoT", "dados"],
+    github: "https://github.com/thalison7k?tab=repositories",
   },
   {
     title: "Park Sense",
@@ -47,7 +51,8 @@ const projects = [
     solution: "Sistema com sensores IoT para detecção de vagas em tempo real, com dashboard web de monitoramento.",
     technologies: ["IoT", "Python", "Arduino", "MQTT", "Cloud"],
     result: "Protótipo funcional com detecção de vagas em tempo real e interface de visualização.",
-    github: "https://github.com/thalisonsilva",
+    tags: ["IoT", "automação", "dashboard"],
+    github: "https://github.com/thalison7k?tab=repositories",
   },
 ];
 
@@ -117,7 +122,7 @@ const Projects = () => {
                 <div className="flex gap-3">
                   <TrendingUp className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
                   <div>
-                    <span className="text-xs font-semibold uppercase text-muted-foreground tracking-wider">Resultado</span>
+                    <span className="text-xs font-semibold uppercase text-muted-foreground tracking-wider">Impacto / Resultado</span>
                     <p className="text-sm text-foreground mt-1">{project.result}</p>
                   </div>
                 </div>
@@ -130,6 +135,18 @@ const Projects = () => {
                       className="px-3 py-1 bg-primary/10 text-primary text-xs font-medium rounded-full border border-primary/20"
                     >
                       {tech}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Tags */}
+                <div className="flex flex-wrap gap-1.5 pt-1">
+                  {project.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="px-2 py-0.5 bg-secondary text-secondary-foreground text-[10px] font-medium rounded uppercase tracking-wider"
+                    >
+                      {tag}
                     </span>
                   ))}
                 </div>
@@ -165,7 +182,7 @@ const Projects = () => {
           className="text-center mt-12"
         >
           <Button asChild size="lg" className="gap-3 glow text-base px-8">
-            <a href="https://github.com/thalisonsilva" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/thalison7k?tab=repositories" target="_blank" rel="noopener noreferrer">
               <Github className="w-5 h-5" />
               Ver todos os projetos no GitHub
             </a>
