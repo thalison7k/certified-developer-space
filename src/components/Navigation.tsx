@@ -5,6 +5,7 @@ import ThemeToggle from "./ThemeToggle";
 
 const navItems = [
   { href: "#skills", label: "Skills" },
+  { href: "#projetos", label: "Projetos" },
   { href: "#experiencia", label: "Experiência" },
   { href: "#formacao", label: "Formação" },
   { href: "#certificados", label: "Certificados" },
@@ -38,7 +39,6 @@ const Navigation = () => {
             TS
           </a>
 
-          {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
               <a
@@ -52,7 +52,6 @@ const Navigation = () => {
             <ThemeToggle />
           </div>
 
-          {/* Mobile Menu Button */}
           <div className="flex items-center gap-4 md:hidden">
             <ThemeToggle />
             <button
@@ -64,7 +63,6 @@ const Navigation = () => {
           </div>
         </div>
 
-        {/* Mobile Navigation */}
         {isOpen && (
           <motion.div
             initial={{ opacity: 0, y: -20 }}
