@@ -1,29 +1,28 @@
 import { motion } from "framer-motion";
-import { Mail, Linkedin, MapPin, Send } from "lucide-react";
+import { Mail, Linkedin, MapPin, Send, Github, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Contact = () => {
   return (
-    <section id="contato" className="section-padding relative bg-secondary/30">
+    <section id="contato" className="section-padding relative">
       <div className="container mx-auto max-w-4xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-16"
+          className="text-center mb-12"
         >
           <p className="text-primary font-medium mb-2 tracking-wider uppercase text-sm">Vamos Conversar</p>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-            Entre em <span className="gradient-text">Contato</span>
+            Pronto para <span className="gradient-text">Contribuir</span>
           </h2>
           <p className="text-muted-foreground max-w-xl mx-auto">
-            Estou sempre aberto a novas oportunidades, colaborações e conversas sobre tecnologia e inovação.
+            Estou disponível para oportunidades em tecnologia, desenvolvimento e automação. Vamos conectar?
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-6">
-          {/* Email Card */}
+        <div className="grid md:grid-cols-3 gap-6 mb-12">
           <motion.a
             href="mailto:thalysonoliveira75@gmail.com"
             initial={{ opacity: 0, y: 20 }}
@@ -39,7 +38,6 @@ const Contact = () => {
             <p className="text-sm text-muted-foreground break-all">thalysonoliveira75@gmail.com</p>
           </motion.a>
 
-          {/* LinkedIn Card */}
           <motion.a
             href="https://www.linkedin.com/in/thalison-silva-b00a161a7/"
             target="_blank"
@@ -57,7 +55,6 @@ const Contact = () => {
             <p className="text-sm text-muted-foreground">Conecte-se comigo</p>
           </motion.a>
 
-          {/* Location Card */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -73,20 +70,40 @@ const Contact = () => {
           </motion.div>
         </div>
 
-        {/* CTA */}
+        {/* CTA Final */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.4 }}
-          className="text-center mt-12"
+          className="glass-card rounded-2xl p-8 md:p-12 text-center"
         >
-          <Button asChild size="lg" className="gap-2 glow">
-            <a href="mailto:thalysonoliveira75@gmail.com">
-              <Send className="w-5 h-5" />
-              Enviar Mensagem
-            </a>
-          </Button>
+          <h3 className="font-display text-2xl md:text-3xl font-bold mb-3">
+            Vamos trabalhar <span className="gradient-text">juntos</span>?
+          </h3>
+          <p className="text-muted-foreground mb-8 max-w-lg mx-auto">
+            Busco oportunidades para aplicar minhas habilidades em automação, desenvolvimento e análise de dados em projetos que geram impacto real.
+          </p>
+          <div className="flex flex-wrap gap-3 justify-center">
+            <Button asChild size="lg" className="gap-2 glow">
+              <a href="mailto:thalysonoliveira75@gmail.com">
+                <Send className="w-5 h-5" />
+                Enviar Mensagem
+              </a>
+            </Button>
+            <Button asChild size="lg" variant="outline" className="gap-2">
+              <a href="https://github.com/thalison7k?tab=repositories" target="_blank" rel="noopener noreferrer">
+                <Github className="w-5 h-5" />
+                Ver GitHub
+              </a>
+            </Button>
+            <Button asChild size="lg" variant="outline" className="gap-2 gradient-border">
+              <a href="/curriculo-thalison-silva.pdf" download>
+                <Download className="w-5 h-5" />
+                Baixar Currículo
+              </a>
+            </Button>
+          </div>
         </motion.div>
       </div>
     </section>

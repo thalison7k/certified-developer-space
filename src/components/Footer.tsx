@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Linkedin, Mail, Heart, ExternalLink } from "lucide-react";
+import { Linkedin, Mail, Heart, ExternalLink, Github } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -35,18 +35,13 @@ const Footer = () => {
             viewport={{ once: true }}
             className="flex items-center gap-4"
           >
-            <a
-              href="mailto:thalysonoliveira75@gmail.com"
-              className="text-muted-foreground hover:text-primary transition-colors duration-300"
-            >
+            <a href="mailto:thalysonoliveira75@gmail.com" className="text-muted-foreground hover:text-primary transition-colors duration-300">
               <Mail className="w-5 h-5" />
             </a>
-            <a
-              href="https://www.linkedin.com/in/thalison-silva-b00a161a7/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-primary transition-colors duration-300"
-            >
+            <a href="https://github.com/thalison7k?tab=repositories" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors duration-300">
+              <Github className="w-5 h-5" />
+            </a>
+            <a href="https://www.linkedin.com/in/thalison-silva-b00a161a7/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors duration-300">
               <Linkedin className="w-5 h-5" />
             </a>
           </motion.div>

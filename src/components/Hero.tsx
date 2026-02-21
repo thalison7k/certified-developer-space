@@ -3,6 +3,10 @@ import { Mail, Linkedin, MapPin, Github, Download, Briefcase } from "lucide-reac
 import { Button } from "@/components/ui/button";
 import profilePhoto from "@/assets/profile-photo.jpeg";
 
+const stackPrincipal = [
+  "Python", "Django", "SQL", "APIs REST", "TypeScript", "Git", "Azure", "Power BI"
+];
+
 const Hero = () => {
   return (
     <section className="min-h-screen flex items-center justify-center section-padding relative overflow-hidden">
@@ -37,16 +41,31 @@ const Hero = () => {
           >
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 mb-4">
               <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-              <span className="text-xs font-medium text-primary">Estagiário de TI B2B — Vivo</span>
+              <span className="text-xs font-medium text-primary">Tecnologia da Informação — Projetos Corporativos B2B</span>
             </div>
 
             <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
               Thalison <span className="gradient-text">Silva</span>
             </h1>
 
-            <p className="text-muted-foreground text-lg md:text-xl mb-6 max-w-xl leading-relaxed">
+            <p className="text-muted-foreground text-lg md:text-xl mb-5 max-w-xl leading-relaxed">
               Sou estudante de Engenharia da Computação e estagiário de TI B2B na Vivo, atuando na validação técnica de projetos corporativos de conectividade. Possuo experiência em desenvolvimento web, APIs REST e automações em Python aplicadas a cenários reais de negócio.
             </p>
+
+            {/* Stack Principal */}
+            <div className="mb-6">
+              <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-3">Stack Principal</p>
+              <div className="flex flex-wrap gap-2 justify-center lg:justify-start">
+                {stackPrincipal.map((tech) => (
+                  <span
+                    key={tech}
+                    className="px-3 py-1.5 bg-primary/10 text-primary text-sm font-medium rounded-full border border-primary/20 hover:bg-primary/20 transition-colors duration-300"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
 
             <div className="flex flex-wrap items-center gap-4 justify-center lg:justify-start mb-8">
               <div className="flex items-center gap-2 text-muted-foreground text-sm">
@@ -61,7 +80,7 @@ const Hero = () => {
 
             <div className="flex flex-wrap gap-3 justify-center lg:justify-start">
               <Button asChild size="lg" className="gap-2 glow">
-                <a href="https://github.com/thalisonsilva" target="_blank" rel="noopener noreferrer">
+                <a href="https://github.com/thalison7k?tab=repositories" target="_blank" rel="noopener noreferrer">
                   <Github className="w-5 h-5" />
                   Ver meu GitHub
                 </a>
