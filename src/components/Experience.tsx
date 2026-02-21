@@ -1,36 +1,52 @@
 import { motion } from "framer-motion";
-import { Briefcase, Calendar, MapPin } from "lucide-react";
+import { Calendar, MapPin, CheckCircle2 } from "lucide-react";
 
 const experiences = [
   {
     company: "Vivo (Telefônica Brasil)",
     role: "Estagiário de TI B2B",
-    period: "mar de 2025 - o momento",
-    duration: "11 meses",
+    period: "mar de 2025 – o momento",
+    duration: "Atual",
     location: "São Paulo, Brasil · Híbrido",
     type: "Estágio",
-    description: "Atuação na área de Tecnologia da Informação voltada para o ambiente B2B (corporativo), com foco na triagem, validação e suporte ao processo de aprovação de projetos técnicos relacionados a soluções de conectividade, automação e infraestrutura digital para empresas parceiras da Vivo.",
-    skills: ["TI B2B", "Conectividade", "Automação", "Infraestrutura Digital"],
+    responsibilities: [
+      "Validação técnica de projetos corporativos de conectividade",
+      "Análise de documentação técnica de soluções de infraestrutura",
+      "Suporte ao processo de aprovação de implantações de rede",
+      "Interação com equipes de engenharia e operação",
+      "Apoio a soluções empresariais de automação e infraestrutura digital",
+    ],
+    skills: ["TI B2B", "Conectividade", "Automação", "Infraestrutura Digital", "Análise Técnica"],
   },
   {
     company: "CG3 Telecom",
     role: "Operador de Máquinas",
-    period: "mai de 2021 - ago de 2023",
+    period: "mai de 2021 – ago de 2023",
     duration: "2 anos 4 meses",
     location: "São Paulo, Brasil",
     type: "Tempo integral",
-    description: "Atuei como Operador de Máquinas Injetoras, sendo responsável pelo auxílio na preparação e setup das máquinas, troca de moldes, regulagens operacionais e controle de parâmetros de produção. Realizava inspeções visuais e dimensionais das peças, assegurando a qualidade do produto final. Auxiliei na manutenção preventiva de equipamentos e na organização do setor produtivo.",
-    skills: ["Preparação de máquinas", "Troca de moldes", "Inspeção de qualidade", "Manutenção preventiva", "Produção industrial"],
+    responsibilities: [
+      "Preparação e setup de máquinas injetoras industriais",
+      "Troca de moldes e regulagens operacionais",
+      "Inspeções visuais e dimensionais de controle de qualidade",
+      "Manutenção preventiva de equipamentos",
+      "Organização do setor produtivo",
+    ],
+    skills: ["Controle de Qualidade", "Manutenção Preventiva", "Produção Industrial"],
   },
   {
     company: "Almanara Restaurantes",
     role: "Ajudante de Cozinha",
-    period: "out de 2018 - abr de 2021",
+    period: "out de 2018 – abr de 2021",
     duration: "2 anos 7 meses",
-    location: "São Paulo, Brasil · No local",
+    location: "São Paulo, Brasil",
     type: "Tempo integral",
-    description: "Atuação como Auxiliar Geral na área de culinária, desenvolvendo habilidades em trabalho em equipe, organização e execução de tarefas sob pressão.",
-    skills: ["Culinária", "Trabalho em equipe", "Organização"],
+    responsibilities: [
+      "Execução de tarefas operacionais sob pressão",
+      "Trabalho colaborativo em equipe multidisciplinar",
+      "Organização e gestão de processos do setor",
+    ],
+    skills: ["Trabalho em Equipe", "Organização", "Gestão de Processos"],
   },
 ];
 
@@ -45,71 +61,80 @@ const Experience = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <p className="text-primary font-medium mb-2 tracking-wider uppercase text-sm">Trajetória Profissional</p>
+          <p className="text-primary font-medium mb-2 tracking-wider uppercase text-sm">Trajetória</p>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold">
             Experiência <span className="gradient-text">Profissional</span>
           </h2>
         </motion.div>
 
         <div className="relative">
-          {/* Timeline Line */}
-          <div className="absolute left-0 md:left-1/2 transform md:-translate-x-px top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-accent to-transparent" />
+          <div className="absolute left-0 md:left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-accent to-transparent" />
 
           {experiences.map((exp, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
+              initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className={`relative flex flex-col md:flex-row gap-8 mb-12 ${
-                index % 2 === 0 ? "md:flex-row-reverse" : ""
-              }`}
+              transition={{ duration: 0.5, delay: index * 0.15 }}
+              className="relative ml-8 md:ml-20 mb-12 last:mb-0"
             >
               {/* Timeline Dot */}
-              <div className="absolute left-0 md:left-1/2 transform -translate-x-1/2 w-4 h-4 bg-primary rounded-full glow z-10 mt-8" />
+              <div className="absolute -left-8 md:-left-12 w-4 h-4 bg-primary rounded-full glow z-10 mt-8 transform -translate-x-1/2" />
 
-              {/* Content */}
-              <div className={`flex-1 ${index % 2 === 0 ? "md:pr-16" : "md:pl-16"} ml-8 md:ml-0`}>
-                <div className="glass-card rounded-xl p-6 md:p-8 hover:border-primary/50 transition-all duration-300">
-                  <div className="flex flex-wrap items-center gap-3 mb-4">
-                    <span className="px-3 py-1 bg-primary/20 text-primary text-xs font-medium rounded-full">
-                      {exp.type}
+              <div className="glass-card rounded-xl p-6 md:p-8 hover:border-primary/50 transition-all duration-300">
+                <div className="flex flex-wrap items-center gap-3 mb-4">
+                  <span className={`px-3 py-1 text-xs font-medium rounded-full ${
+                    exp.duration === "Atual"
+                      ? "bg-green-500/20 text-green-400 border border-green-500/30"
+                      : "bg-primary/20 text-primary"
+                  }`}>
+                    {exp.type}
+                  </span>
+                  {exp.duration === "Atual" && (
+                    <span className="flex items-center gap-1 text-xs text-green-400">
+                      <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
+                      Em andamento
                     </span>
-                    <span className="text-muted-foreground text-sm">{exp.duration}</span>
+                  )}
+                  <span className="text-muted-foreground text-sm">{exp.duration}</span>
+                </div>
+
+                <h3 className="font-display text-xl md:text-2xl font-bold mb-1">{exp.role}</h3>
+                <p className="text-primary font-medium mb-4">{exp.company}</p>
+
+                <div className="flex flex-wrap gap-4 text-sm text-muted-foreground mb-5">
+                  <div className="flex items-center gap-2">
+                    <Calendar className="w-4 h-4 text-accent" />
+                    <span>{exp.period}</span>
                   </div>
-
-                  <h3 className="font-display text-xl md:text-2xl font-bold mb-2">{exp.role}</h3>
-                  <p className="text-primary font-medium mb-4">{exp.company}</p>
-
-                  <div className="flex flex-wrap gap-4 text-sm text-muted-foreground mb-4">
-                    <div className="flex items-center gap-2">
-                      <Calendar className="w-4 h-4 text-accent" />
-                      <span>{exp.period}</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <MapPin className="w-4 h-4 text-accent" />
-                      <span>{exp.location}</span>
-                    </div>
-                  </div>
-
-                  <p className="text-muted-foreground mb-4">{exp.description}</p>
-
-                  <div className="flex flex-wrap gap-2">
-                    {exp.skills.map((skill, skillIndex) => (
-                      <span
-                        key={skillIndex}
-                        className="px-3 py-1 bg-secondary text-secondary-foreground text-xs rounded-md"
-                      >
-                        {skill}
-                      </span>
-                    ))}
+                  <div className="flex items-center gap-2">
+                    <MapPin className="w-4 h-4 text-accent" />
+                    <span>{exp.location}</span>
                   </div>
                 </div>
-              </div>
 
-              {/* Empty space for timeline alignment */}
-              <div className="hidden md:block flex-1" />
+                {/* Responsibilities */}
+                <ul className="space-y-2 mb-5">
+                  {exp.responsibilities.map((resp, i) => (
+                    <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
+                      <CheckCircle2 className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                      <span>{resp}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="flex flex-wrap gap-2">
+                  {exp.skills.map((skill) => (
+                    <span
+                      key={skill}
+                      className="px-3 py-1 bg-secondary text-secondary-foreground text-xs rounded-md"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
             </motion.div>
           ))}
         </div>

@@ -6,59 +6,61 @@ const skillCategories = [
     title: "Linguagens de Programação",
     icon: Code,
     skills: [
-      { name: "Python", level: 85 },
-      { name: "SQL", level: 80 },
-      { name: "C#", level: 65 },
-      { name: "JavaScript", level: 70 },
-      { name: "HTML/CSS", level: 75 },
+      { name: "Python", description: "Automações corporativas, tratamento de dados com Pandas, APIs REST, scripts de produtividade e processamento de arquivos." },
+      { name: "SQL", description: "Queries complexas, joins, subqueries, otimização de performance e modelagem relacional." },
+      { name: "C#", description: "Programação orientada a objetos, desenvolvimento .NET e lógica de aplicações desktop." },
+      { name: "JavaScript / TypeScript", description: "Desenvolvimento web frontend e backend, integração com APIs e frameworks modernos." },
+      { name: "HTML5 / CSS3", description: "Interfaces responsivas, semântica, Tailwind CSS, Flexbox e Grid Layout." },
     ],
   },
   {
     title: "Banco de Dados",
     icon: Database,
     skills: [
-      { name: "SQL Server", level: 75 },
-      { name: "PostgreSQL", level: 70 },
-      { name: "MySQL", level: 70 },
-      { name: "Modelagem de Dados", level: 80 },
+      { name: "SQL Server", description: "Administração, criação de procedures, triggers e otimização de consultas corporativas." },
+      { name: "PostgreSQL", description: "Modelagem avançada, extensões, indexação e integridade referencial." },
+      { name: "MySQL", description: "CRUD completo, normalização, views e gerenciamento de schemas." },
+      { name: "Modelagem de Dados", description: "Diagramas ER, EER, normalização até 3FN e design de schemas escaláveis." },
     ],
   },
   {
     title: "Inteligência Artificial",
     icon: Brain,
     skills: [
-      { name: "Machine Learning", level: 70 },
-      { name: "Deep Learning", level: 65 },
-      { name: "NLP", level: 60 },
-      { name: "Azure ML", level: 65 },
+      { name: "Machine Learning", description: "Modelos preditivos, regressão, classificação e validação cruzada com scikit-learn." },
+      { name: "Deep Learning", description: "Redes neurais CNNs e RNNs, treinamento de modelos e transfer learning." },
+      { name: "NLP", description: "Análise de sentimentos, extração de entidades e processamento de texto." },
+      { name: "Azure ML", description: "Treinamento e deploy de modelos no-code via Azure Machine Learning Studio." },
     ],
   },
   {
     title: "Análise de Dados",
     icon: BarChart3,
     skills: [
-      { name: "Power BI", level: 85 },
-      { name: "Excel Avançado", level: 90 },
-      { name: "Data Visualization", level: 80 },
-      { name: "ETL", level: 70 },
+      { name: "Power BI", description: "Dashboards interativos, DAX, modelagem dimensional e relatórios executivos." },
+      { name: "Excel Avançado", description: "Fórmulas complexas, tabelas dinâmicas, macros VBA e análise de dados." },
+      { name: "Data Visualization", description: "Storytelling com dados, gráficos eficazes e comunicação visual de insights." },
+      { name: "ETL", description: "Extração, transformação e carga de dados entre fontes heterogêneas." },
     ],
   },
   {
     title: "Cloud & DevOps",
     icon: Cloud,
     skills: [
-      { name: "Microsoft Azure", level: 70 },
-      { name: "IoT", level: 65 },
-      { name: "APIs REST", level: 75 },
+      { name: "Microsoft Azure", description: "Serviços cognitivos, Azure Functions, storage e arquitetura cloud." },
+      { name: "IoT", description: "Sensores, protocolos de comunicação, monitoramento e automação com dispositivos conectados." },
+      { name: "APIs REST", description: "Design, consumo e documentação de APIs RESTful com autenticação." },
+      { name: "Docker", description: "Containerização de aplicações e ambientes de desenvolvimento isolados." },
     ],
   },
   {
-    title: "Ferramentas",
+    title: "Ferramentas & Workflow",
     icon: Terminal,
     skills: [
-      { name: "Git", level: 70 },
-      { name: "Pacote Office", level: 95 },
-      { name: "VS Code", level: 85 },
+      { name: "Git / GitHub", description: "Versionamento, branching, pull requests, code review e CI/CD." },
+      { name: "VS Code", description: "Extensões, debugging, terminal integrado e configuração de ambiente." },
+      { name: "Django", description: "Framework web Python, ORM, autenticação, templates e admin." },
+      { name: "Node.js", description: "Desenvolvimento backend, Express, middleware e integração com bancos de dados." },
     ],
   },
 ];
@@ -75,10 +77,10 @@ const Skills = () => {
           className="text-center mb-16"
         >
           <p className="text-primary font-medium mb-2 tracking-wider uppercase text-sm">
-            Competências
+            Stack Técnica
           </p>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold">
-            Minhas <span className="gradient-text">Habilidades</span>
+            Tecnologias & <span className="gradient-text">Competências</span>
           </h2>
         </motion.div>
 
@@ -100,25 +102,10 @@ const Skills = () => {
               </div>
 
               <div className="space-y-4">
-                {category.skills.map((skill, skillIndex) => (
-                  <div key={skill.name}>
-                    <div className="flex justify-between mb-1">
-                      <span className="text-sm text-foreground">{skill.name}</span>
-                      <span className="text-sm text-muted-foreground">{skill.level}%</span>
-                    </div>
-                    <div className="h-2 bg-secondary rounded-full overflow-hidden">
-                      <motion.div
-                        className="h-full bg-gradient-to-r from-primary to-accent rounded-full"
-                        initial={{ width: 0 }}
-                        whileInView={{ width: `${skill.level}%` }}
-                        viewport={{ once: true }}
-                        transition={{
-                          duration: 1,
-                          delay: categoryIndex * 0.1 + skillIndex * 0.1,
-                          ease: "easeOut",
-                        }}
-                      />
-                    </div>
+                {category.skills.map((skill) => (
+                  <div key={skill.name} className="group/skill">
+                    <h4 className="text-sm font-semibold text-foreground mb-1">{skill.name}</h4>
+                    <p className="text-xs text-muted-foreground leading-relaxed">{skill.description}</p>
                   </div>
                 ))}
               </div>

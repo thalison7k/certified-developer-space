@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Mail, Linkedin, MapPin, GraduationCap } from "lucide-react";
+import { Mail, Linkedin, MapPin, Github, Download, Briefcase } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import profilePhoto from "@/assets/profile-photo.jpeg";
 
@@ -15,15 +15,16 @@ const Hero = () => {
             transition={{ duration: 0.6 }}
             className="relative"
           >
-            <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden gradient-border glow">
+            <div className="w-56 h-56 md:w-72 md:h-72 rounded-2xl overflow-hidden gradient-border glow rotate-3 hover:rotate-0 transition-transform duration-500">
               <img
                 src={profilePhoto}
                 alt="Thalison Silva"
                 className="w-full h-full object-cover"
               />
             </div>
-            <div className="absolute -bottom-2 -right-2 w-20 h-20 bg-primary rounded-full flex items-center justify-center animate-float">
-              <GraduationCap className="w-10 h-10 text-primary-foreground" />
+            <div className="absolute -bottom-3 -right-3 px-4 py-2 bg-primary rounded-lg flex items-center gap-2 animate-float">
+              <Briefcase className="w-4 h-4 text-primary-foreground" />
+              <span className="text-xs font-semibold text-primary-foreground">Disponível</span>
             </div>
           </motion.div>
 
@@ -34,37 +35,53 @@ const Hero = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-center lg:text-left flex-1"
           >
-            <p className="text-primary font-medium mb-2 tracking-wider uppercase text-sm">Estagiário de TI B2B</p>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 mb-4">
+              <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+              <span className="text-xs font-medium text-primary">Estagiário de TI B2B — Vivo</span>
+            </div>
+
             <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
               Thalison <span className="gradient-text">Silva</span>
             </h1>
-            <p className="text-muted-foreground text-lg md:text-xl mb-6 max-w-xl">
-              Estudante de Engenharia da Computação na Univesp, apaixonado por tecnologia, 
-              ciência de dados, inteligência artificial e desenvolvimento de soluções inovadoras.
+
+            <p className="text-muted-foreground text-lg md:text-xl mb-6 max-w-xl leading-relaxed">
+              Sou estudante de Engenharia da Computação e estagiário de TI B2B na Vivo, atuando na validação técnica de projetos corporativos de conectividade. Possuo experiência em desenvolvimento web, APIs REST e automações em Python aplicadas a cenários reais de negócio.
             </p>
 
             <div className="flex flex-wrap items-center gap-4 justify-center lg:justify-start mb-8">
-              <div className="flex items-center gap-2 text-muted-foreground">
+              <div className="flex items-center gap-2 text-muted-foreground text-sm">
                 <MapPin className="w-4 h-4 text-primary" />
                 <span>São Paulo, Brasil</span>
               </div>
-              <div className="flex items-center gap-2 text-muted-foreground">
-                <GraduationCap className="w-4 h-4 text-primary" />
+              <div className="flex items-center gap-2 text-muted-foreground text-sm">
+                <Briefcase className="w-4 h-4 text-primary" />
                 <span>Vivo (Telefônica Brasil)</span>
               </div>
             </div>
 
-            <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
-              <Button asChild className="gap-2 glow">
-                <a href="mailto:thalysonoliveira75@gmail.com">
-                  <Mail className="w-4 h-4" />
-                  Contato via Email
+            <div className="flex flex-wrap gap-3 justify-center lg:justify-start">
+              <Button asChild size="lg" className="gap-2 glow">
+                <a href="https://github.com/thalisonsilva" target="_blank" rel="noopener noreferrer">
+                  <Github className="w-5 h-5" />
+                  Ver meu GitHub
                 </a>
               </Button>
-              <Button asChild variant="outline" className="gap-2 gradient-border">
+              <Button asChild size="lg" variant="outline" className="gap-2 gradient-border">
+                <a href="/curriculo-thalison-silva.pdf" download>
+                  <Download className="w-5 h-5" />
+                  Baixar Currículo
+                </a>
+              </Button>
+              <Button asChild variant="outline" size="lg" className="gap-2">
                 <a href="https://www.linkedin.com/in/thalison-silva-b00a161a7/" target="_blank" rel="noopener noreferrer">
-                  <Linkedin className="w-4 h-4" />
+                  <Linkedin className="w-5 h-5" />
                   LinkedIn
+                </a>
+              </Button>
+              <Button asChild variant="ghost" size="lg" className="gap-2">
+                <a href="mailto:thalysonoliveira75@gmail.com">
+                  <Mail className="w-5 h-5" />
+                  Email
                 </a>
               </Button>
             </div>
