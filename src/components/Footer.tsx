@@ -17,7 +17,7 @@ const Footer = () => {
               <Heart className="w-4 h-4 text-red-500 fill-red-500" />
             </div>
             <a
-              href="https://gamatec-digital-spark.lovable.app/auth"
+              href="https://gamateciadesenvolvimentowebprofissional.lovable.app/site"
               target="_blank"
               rel="noopener noreferrer"
               className="group inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-primary/20 to-accent/20 border border-primary/30 hover:border-primary/60 hover:from-primary/30 hover:to-accent/30 transition-all duration-300"
