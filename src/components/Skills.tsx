@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Code, Database, Brain, BarChart3, Cloud, Terminal } from "lucide-react";
+import { staggerContainer, fadeUp, defaultViewport } from "@/lib/motion";
 
 const skillCategories = [
   {
@@ -84,18 +85,21 @@ const Skills = () => {
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {skillCategories.map((category, categoryIndex) => (
+        <motion.div
+          variants={staggerContainer(0.1)}
+          initial="hidden"
+          whileInView="visible"
+          viewport={defaultViewport}
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 perspective-1000"
+        >
+          {skillCategories.map((category) => (
             <motion.div
               key={category.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: categoryIndex * 0.1 }}
-              className="glass-card rounded-xl p-6 hover:border-primary/50 transition-all duration-300 group"
+              variants={fadeUp}
+              className="glass-card card-3d tilt-shine rounded-xl p-6 hover:border-primary/50 group"
             >
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500 shadow-lg shadow-primary/30 lift-2">
                   <category.icon className="w-6 h-6 text-primary-foreground" />
                 </div>
                 <h3 className="font-display text-lg font-semibold">{category.title}</h3>
@@ -104,14 +108,14 @@ const Skills = () => {
               <div className="space-y-4">
                 {category.skills.map((skill) => (
                   <div key={skill.name} className="group/skill">
-                    <h4 className="text-sm font-semibold text-foreground mb-1">{skill.name}</h4>
+                    <h4 className="text-sm font-semibold text-foreground mb-1 transition-colors duration-200 group-hover/skill:text-primary">{skill.name}</h4>
                     <p className="text-xs text-muted-foreground leading-relaxed">{skill.description}</p>
                   </div>
                 ))}
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

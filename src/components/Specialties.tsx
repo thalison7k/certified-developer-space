@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Terminal, Globe, BarChart3 } from "lucide-react";
+import { staggerContainer, fadeUp, defaultViewport } from "@/lib/motion";
 
 const specialties = [
   {
@@ -41,31 +42,34 @@ const Specialties = () => {
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-6">
-          {specialties.map((spec, index) => (
+        <motion.div
+          variants={staggerContainer(0.12)}
+          initial="hidden"
+          whileInView="visible"
+          viewport={defaultViewport}
+          className="grid md:grid-cols-3 gap-6 perspective-1000"
+        >
+          {specialties.map((spec) => (
             <motion.div
               key={spec.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="glass-card rounded-xl p-8 text-center hover:border-primary/50 transition-all duration-300 group"
+              variants={fadeUp}
+              className="glass-card card-3d tilt-shine rounded-xl p-8 text-center hover:border-primary/50 group"
             >
-              <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+              <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500 shadow-lg shadow-primary/40 lift-3">
                 <spec.icon className="w-8 h-8 text-primary-foreground" />
               </div>
               <h3 className="font-display text-xl font-bold mb-3">{spec.title}</h3>
               <p className="text-muted-foreground text-sm leading-relaxed mb-4">{spec.description}</p>
               <div className="flex flex-wrap justify-center gap-2">
                 {spec.tags.map((tag) => (
-                  <span key={tag} className="px-2.5 py-1 bg-secondary text-secondary-foreground text-xs rounded-full">
+                  <span key={tag} className="chip-micro px-2.5 py-1 bg-secondary text-secondary-foreground text-xs rounded-full">
                     {tag}
                   </span>
                 ))}
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
