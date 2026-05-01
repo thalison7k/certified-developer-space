@@ -4,6 +4,17 @@ import { Button } from "@/components/ui/button";
 
 const projects = [
   {
+    title: "Calculadora de Dias de Escritório",
+    subtitle: "App de Planejamento de Presença & Meta 60%",
+    problem: "Profissionais híbridos precisavam acompanhar visualmente sua meta mensal de presença no escritório (60%) considerando férias, atestados, day off e banco de horas.",
+    solution: "Aplicação web interativa com calendário dinâmico, escala personalizável, classificação de dias (presente, feriado, férias, atestado, day off, banco de horas) e cálculo automático de progresso vs meta.",
+    technologies: ["TypeScript", "React", "Tailwind CSS", "Vite", "PWA"],
+    result: "Visualização em tempo real do percentual de presença, mínimo obrigatório de dias e distribuição mensal — instalável como PWA.",
+    tags: ["dashboard", "automação", "dados"],
+    github: "https://github.com/thalison7k?tab=repositories",
+    demo: "https://medidordiasescritorio.lovable.app",
+  },
+  {
     title: "GamaTec Digital Spark",
     subtitle: "Plataforma de Criação de Sites Profissionais",
     problem: "Pequenas empresas não conseguiam criar sites profissionais de forma acessível e rápida.",
@@ -78,15 +89,15 @@ const Projects = () => {
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-8">
+        <div className="grid lg:grid-cols-2 gap-8 perspective-1000">
           {projects.map((project, index) => (
             <motion.div
               key={project.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 30, rotateX: -10 }}
+              whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="glass-card rounded-xl overflow-hidden hover:border-primary/50 transition-all duration-300 group"
+              transition={{ duration: 0.6, delay: index * 0.1, ease: [0.23, 1, 0.32, 1] }}
+              className="glass-card card-3d tilt-shine rounded-xl overflow-hidden hover:border-primary/50 group"
             >
               {/* Header */}
               <div className="p-6 pb-4 border-b border-border/50">
@@ -95,7 +106,7 @@ const Projects = () => {
                     <h3 className="font-display text-xl md:text-2xl font-bold">{project.title}</h3>
                     <p className="text-sm text-primary font-medium">{project.subtitle}</p>
                   </div>
-                  <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center flex-shrink-0 lift-2 shadow-lg shadow-primary/30 group-hover:rotate-12 transition-transform duration-500">
                     <Rocket className="w-5 h-5 text-primary-foreground" />
                   </div>
                 </div>

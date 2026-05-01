@@ -29,17 +29,17 @@ const FeaturedProject = () => {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 30, rotateX: -8 }}
+          whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="glass-card rounded-2xl overflow-hidden hover:border-primary/50 transition-all duration-300"
+          transition={{ duration: 0.7, ease: [0.23, 1, 0.32, 1] }}
+          className="glass-card card-3d tilt-shine rounded-2xl overflow-hidden hover:border-primary/50 group perspective-1000"
         >
           <div className="grid lg:grid-cols-2 gap-0">
             {/* Visual Side */}
-            <div className="relative bg-gradient-to-br from-primary/20 via-accent/10 to-transparent p-8 md:p-12 flex items-center justify-center min-h-[300px]">
-              <div className="text-center">
-                <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-primary to-accent flex items-center justify-center mx-auto mb-6">
+            <div className="relative bg-gradient-to-br from-primary/20 via-accent/10 to-transparent p-8 md:p-12 flex items-center justify-center min-h-[300px] overflow-hidden">
+              <div className="text-center lift-2">
+                <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-primary to-accent flex items-center justify-center mx-auto mb-6 float-3d shadow-2xl shadow-primary/40">
                   <Zap className="w-10 h-10 text-primary-foreground" />
                 </div>
                 <h3 className="font-display text-2xl md:text-3xl font-bold mb-2">CorretorEndereco</h3>
