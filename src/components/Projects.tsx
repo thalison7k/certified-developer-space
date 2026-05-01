@@ -4,6 +4,17 @@ import { Button } from "@/components/ui/button";
 
 const projects = [
   {
+    title: "Calculadora de Dias de Escritório",
+    subtitle: "App de Planejamento de Presença & Meta 60%",
+    problem: "Profissionais híbridos precisavam acompanhar visualmente sua meta mensal de presença no escritório (60%) considerando férias, atestados, day off e banco de horas.",
+    solution: "Aplicação web interativa com calendário dinâmico, escala personalizável, classificação de dias (presente, feriado, férias, atestado, day off, banco de horas) e cálculo automático de progresso vs meta.",
+    technologies: ["TypeScript", "React", "Tailwind CSS", "Vite", "PWA"],
+    result: "Visualização em tempo real do percentual de presença, mínimo obrigatório de dias e distribuição mensal — instalável como PWA.",
+    tags: ["dashboard", "automação", "dados"],
+    github: "https://github.com/thalison7k?tab=repositories",
+    demo: "https://medidordiasescritorio.lovable.app",
+  },
+  {
     title: "GamaTec Digital Spark",
     subtitle: "Plataforma de Criação de Sites Profissionais",
     problem: "Pequenas empresas não conseguiam criar sites profissionais de forma acessível e rápida.",
