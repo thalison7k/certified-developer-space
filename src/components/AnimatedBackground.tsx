@@ -1,11 +1,21 @@
 import { motion } from "framer-motion";
+import { useMouseParallax } from "@/hooks/useMouseParallax";
 
 const AnimatedBackground = () => {
+  const { x, y } = useMouseParallax();
+
   return (
-    <div className="fixed inset-0 -z-10 overflow-hidden">
+    <div className="fixed inset-0 -z-10 overflow-hidden perspective-1000">
       {/* Base gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-secondary/20" />
       
+      {/* Parallax-driven orb layer */}
+      <div
+        className="absolute inset-0 transition-transform duration-300 ease-out will-change-transform"
+        style={{
+          transform: `translate3d(${x * 40}px, ${y * 40}px, 0)`,
+        }}
+      >
       {/* Animated gradient orbs */}
       <motion.div
         className="absolute top-0 left-0 w-[600px] h-[600px] rounded-full bg-primary/10 blur-[120px]"
@@ -66,15 +76,18 @@ const AnimatedBackground = () => {
         }}
       />
 
+      </div>
+
       {/* Grid pattern overlay */}
       <div 
-        className="absolute inset-0 opacity-[0.02]"
+        className="absolute inset-0 opacity-[0.03] transition-transform duration-500 ease-out will-change-transform"
         style={{
           backgroundImage: `
             linear-gradient(hsl(var(--primary)) 1px, transparent 1px),
             linear-gradient(90deg, hsl(var(--primary)) 1px, transparent 1px)
           `,
           backgroundSize: '60px 60px',
+          transform: `perspective(1000px) rotateX(${y * 4}deg) rotateY(${x * -4}deg) translate3d(${x * 15}px, ${y * 15}px, 0)`,
         }}
       />
 

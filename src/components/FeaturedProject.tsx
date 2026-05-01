@@ -46,7 +46,7 @@ const FeaturedProject = () => {
                 <p className="text-primary font-medium text-lg">Premium</p>
                 <div className="flex flex-wrap justify-center gap-2 mt-4">
                   {["Python", "Pandas", "APIs REST", "Regex", "Excel"].map((tech) => (
-                    <span key={tech} className="px-3 py-1 bg-primary/10 text-primary text-xs font-medium rounded-full border border-primary/20">
+                    <span key={tech} className="chip-micro px-3 py-1 bg-primary/10 text-primary text-xs font-medium rounded-full border border-primary/20">
                       {tech}
                     </span>
                   ))}
@@ -77,13 +77,13 @@ const FeaturedProject = () => {
               </div>
 
               <div className="flex flex-wrap gap-3">
-                <Button asChild className="gap-2 glow">
+                <Button asChild className="btn-micro gap-2 glow">
                   <a href="https://github.com/thalison7k?tab=repositories" target="_blank" rel="noopener noreferrer">
                     <Github className="w-4 h-4" />
                     Ver Código
                   </a>
                 </Button>
-                <Button asChild variant="outline" className="gap-2">
+                <Button asChild variant="outline" className="btn-micro gap-2">
                   <a href="https://github.com/thalison7k?tab=repositories" target="_blank" rel="noopener noreferrer">
                     <ExternalLink className="w-4 h-4" />
                     Ver Demonstração
