@@ -9,6 +9,13 @@ const AnimatedBackground = () => {
       {/* Base gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-secondary/20" />
       
+      {/* Parallax-driven orb layer */}
+      <div
+        className="absolute inset-0 transition-transform duration-300 ease-out will-change-transform"
+        style={{
+          transform: `translate3d(${x * 40}px, ${y * 40}px, 0)`,
+        }}
+      >
       {/* Animated gradient orbs */}
       <motion.div
         className="absolute top-0 left-0 w-[600px] h-[600px] rounded-full bg-primary/10 blur-[120px]"
@@ -68,6 +75,8 @@ const AnimatedBackground = () => {
           delay: 1,
         }}
       />
+
+      </div>
 
       {/* Grid pattern overlay */}
       <div 
