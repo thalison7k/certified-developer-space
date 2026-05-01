@@ -1,8 +1,11 @@
 import { motion } from "framer-motion";
+import { useMouseParallax } from "@/hooks/useMouseParallax";
 
 const AnimatedBackground = () => {
+  const { x, y } = useMouseParallax();
+
   return (
-    <div className="fixed inset-0 -z-10 overflow-hidden">
+    <div className="fixed inset-0 -z-10 overflow-hidden perspective-1000">
       {/* Base gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-secondary/20" />
       
