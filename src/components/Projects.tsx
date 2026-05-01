@@ -165,14 +165,14 @@ const Projects = () => {
 
               {/* Footer */}
               <div className="px-6 pb-6 flex flex-wrap gap-3">
-                <Button asChild variant="outline" size="sm" className="gap-2">
+                <Button asChild variant="outline" size="sm" className="btn-micro gap-2">
                   <a href={project.github} target="_blank" rel="noopener noreferrer">
                     <Github className="w-4 h-4" />
                     Ver código fonte
                   </a>
                 </Button>
                 {project.demo && (
-                  <Button asChild size="sm" className="gap-2">
+                  <Button asChild size="sm" className="btn-micro gap-2">
                     <a href={project.demo} target="_blank" rel="noopener noreferrer">
                       <ExternalLink className="w-4 h-4" />
                       Ver demonstração
@@ -192,7 +192,7 @@ const Projects = () => {
           transition={{ duration: 0.5, delay: 0.3 }}
           className="text-center mt-12"
         >
-          <Button asChild size="lg" className="gap-3 glow text-base px-8">
+          <Button asChild size="lg" className="btn-micro gap-3 glow text-base px-8">
             <a href="https://github.com/thalison7k?tab=repositories" target="_blank" rel="noopener noreferrer">
               <Github className="w-5 h-5" />
               Ver todos os projetos no GitHub

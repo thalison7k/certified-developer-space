@@ -77,13 +77,13 @@ const FeaturedProject = () => {
               </div>
 
               <div className="flex flex-wrap gap-3">
-                <Button asChild className="gap-2 glow">
+                <Button asChild className="btn-micro gap-2 glow">
                   <a href="https://github.com/thalison7k?tab=repositories" target="_blank" rel="noopener noreferrer">
                     <Github className="w-4 h-4" />
                     Ver Código
                   </a>
                 </Button>
-                <Button asChild variant="outline" className="gap-2">
+                <Button asChild variant="outline" className="btn-micro gap-2">
                   <a href="https://github.com/thalison7k?tab=repositories" target="_blank" rel="noopener noreferrer">
                     <ExternalLink className="w-4 h-4" />
                     Ver Demonstração

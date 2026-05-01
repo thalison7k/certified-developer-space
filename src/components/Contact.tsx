@@ -85,19 +85,19 @@ const Contact = () => {
             Busco oportunidades para aplicar minhas habilidades em automação, desenvolvimento e análise de dados em projetos que geram impacto real.
           </p>
           <div className="flex flex-wrap gap-3 justify-center">
-            <Button asChild size="lg" className="gap-2 glow">
+            <Button asChild size="lg" className="btn-micro gap-2 glow">
               <a href="mailto:thalysonoliveira75@gmail.com">
                 <Send className="w-5 h-5" />
                 Enviar Mensagem
               </a>
             </Button>
-            <Button asChild size="lg" variant="outline" className="gap-2">
+            <Button asChild size="lg" variant="outline" className="btn-micro gap-2">
               <a href="https://github.com/thalison7k?tab=repositories" target="_blank" rel="noopener noreferrer">
                 <Github className="w-5 h-5" />
                 Ver GitHub
               </a>
             </Button>
-            <Button asChild size="lg" variant="outline" className="gap-2 gradient-border">
+            <Button asChild size="lg" variant="outline" className="btn-micro gap-2 gradient-border">
               <a href="/curriculo-thalison-silva.pdf" download>
                 <Download className="w-5 h-5" />
                 Baixar Currículo
