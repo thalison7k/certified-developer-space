@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Award } from "lucide-react";
 import { useState } from "react";
+import { staggerContainer, scaleIn, defaultViewport } from "@/lib/motion";
 
 const certificates = [
   { name: "Lean Six Sigma Yellow Belt", issuer: "Vivo (Telefônica Brasil)", category: "Metodologia" },
@@ -83,9 +84,9 @@ const Certificates = () => {
             <button
               key={category}
               onClick={() => setSelectedCategory(category)}
-              className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-300 ${
+              className={`chip-micro px-3 py-1.5 rounded-full text-xs font-medium ${
                 selectedCategory === category
-                  ? "bg-primary text-primary-foreground"
+                  ? "bg-primary text-primary-foreground shadow-md shadow-primary/40"
                   : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
               }`}
             >
@@ -94,28 +95,32 @@ const Certificates = () => {
           ))}
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-          {filteredCertificates.map((cert, index) => (
+        <motion.div
+          key={selectedCategory}
+          variants={staggerContainer(0.03, 0)}
+          initial="hidden"
+          whileInView="visible"
+          viewport={defaultViewport}
+          className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3"
+        >
+          {filteredCertificates.map((cert) => (
             <motion.div
               key={cert.name}
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.3, delay: index * 0.02 }}
-              className="glass-card rounded-lg p-4 hover:border-primary/50 transition-all duration-300 group"
+              variants={scaleIn}
+              className="glass-card rounded-lg p-4 hover:border-primary/50 hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/20 transition-all duration-300 group cursor-default"
             >
               <div className="flex items-start gap-3">
-                <div className="flex-shrink-0 w-8 h-8 rounded-md bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                <div className="flex-shrink-0 w-8 h-8 rounded-md bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500">
                   <Award className="w-4 h-4 text-primary-foreground" />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <h3 className="text-sm font-semibold line-clamp-2 leading-tight">{cert.name}</h3>
+                  <h3 className="text-sm font-semibold line-clamp-2 leading-tight group-hover:text-primary transition-colors duration-300">{cert.name}</h3>
                   <p className="text-xs text-muted-foreground mt-1">{cert.issuer}</p>
                 </div>
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

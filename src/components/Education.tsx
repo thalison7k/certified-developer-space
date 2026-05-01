@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { GraduationCap, Calendar, BookOpen } from "lucide-react";
+import { staggerContainer, fadeUp, defaultViewport } from "@/lib/motion";
 
 const education = [
   {
@@ -45,20 +46,23 @@ const Education = () => {
           </h2>
         </motion.div>
 
-        <div className="grid gap-6">
+        <motion.div
+          variants={staggerContainer(0.12)}
+          initial="hidden"
+          whileInView="visible"
+          viewport={defaultViewport}
+          className="grid gap-6 perspective-1000"
+        >
           {education.map((edu, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="glass-card rounded-xl p-6 md:p-8 hover:border-primary/50 transition-all duration-300 group"
+              variants={fadeUp}
+              className="glass-card card-3d tilt-shine rounded-xl p-6 md:p-8 hover:border-primary/50 group"
             >
               <div className="flex flex-col md:flex-row gap-6">
                 {/* Icon */}
                 <div className="flex-shrink-0">
-                  <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500 shadow-lg shadow-primary/30 lift-2">
                     <GraduationCap className="w-8 h-8 text-primary-foreground" />
                   </div>
                 </div>
@@ -91,7 +95,7 @@ const Education = () => {
                     {edu.skills.map((skill, skillIndex) => (
                       <span
                         key={skillIndex}
-                        className="px-3 py-1 bg-secondary text-secondary-foreground text-xs rounded-md"
+                        className="chip-micro px-3 py-1 bg-secondary text-secondary-foreground text-xs rounded-md"
                       >
                         {skill}
                       </span>
@@ -101,7 +105,7 @@ const Education = () => {
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
