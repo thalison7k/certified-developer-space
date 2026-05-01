@@ -233,6 +233,34 @@ All colors MUST be HSL.
     66% { transform: translateY(-6px) rotateX(-2deg) rotateY(2deg); }
   }
 
+  /* Consistent micro-interactions */
+  .btn-micro {
+    @apply transition-all duration-300 ease-out;
+    transform: translateZ(0);
+  }
+  .btn-micro:hover {
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 10px 25px -10px hsl(var(--primary) / 0.5);
+  }
+  .btn-micro:active {
+    transform: translateY(0) scale(0.97);
+    transition-duration: 100ms;
+  }
+
+  .chip-micro {
+    @apply transition-all duration-300 ease-out cursor-default;
+    transform: translateZ(0);
+  }
+  .chip-micro:hover {
+    transform: translateY(-2px) scale(1.06);
+    background-color: hsl(var(--primary) / 0.2);
+    border-color: hsl(var(--primary) / 0.5);
+    box-shadow: 0 6px 16px -6px hsl(var(--primary) / 0.4);
+  }
+  .chip-micro:active {
+    transform: translateY(0) scale(0.96);
+  }
+
   .icon-3d {
     transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
     transform-style: preserve-3d;
