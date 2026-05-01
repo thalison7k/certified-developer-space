@@ -106,7 +106,7 @@ const Projects = () => {
                     <h3 className="font-display text-xl md:text-2xl font-bold">{project.title}</h3>
                     <p className="text-sm text-primary font-medium">{project.subtitle}</p>
                   </div>
-                  <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center flex-shrink-0 lift-2 shadow-lg shadow-primary/30 group-hover:rotate-12 transition-transform duration-500">
                     <Rocket className="w-5 h-5 text-primary-foreground" />
                   </div>
                 </div>
