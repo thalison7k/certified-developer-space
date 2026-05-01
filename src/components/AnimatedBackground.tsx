@@ -80,13 +80,14 @@ const AnimatedBackground = () => {
 
       {/* Grid pattern overlay */}
       <div 
-        className="absolute inset-0 opacity-[0.02]"
+        className="absolute inset-0 opacity-[0.03] transition-transform duration-500 ease-out will-change-transform"
         style={{
           backgroundImage: `
             linear-gradient(hsl(var(--primary)) 1px, transparent 1px),
             linear-gradient(90deg, hsl(var(--primary)) 1px, transparent 1px)
           `,
           backgroundSize: '60px 60px',
+          transform: `perspective(1000px) rotateX(${y * 4}deg) rotateY(${x * -4}deg) translate3d(${x * 15}px, ${y * 15}px, 0)`,
         }}
       />
 
