@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { BookOpen, TrendingUp } from "lucide-react";
+import { staggerContainer, fadeUp, defaultViewport } from "@/lib/motion";
 
 const topics = [
   {
@@ -43,18 +44,21 @@ const CurrentlyStudying = () => {
           </h2>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 gap-6">
-          {topics.map((topic, index) => (
+        <motion.div
+          variants={staggerContainer(0.1)}
+          initial="hidden"
+          whileInView="visible"
+          viewport={defaultViewport}
+          className="grid sm:grid-cols-2 gap-6 perspective-1000"
+        >
+          {topics.map((topic) => (
             <motion.div
               key={topic.name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="glass-card rounded-xl p-6 hover:border-primary/50 transition-all duration-300 group"
+              variants={fadeUp}
+              className="glass-card card-3d tilt-shine rounded-xl p-6 hover:border-primary/50 group"
             >
               <div className="flex items-center gap-3 mb-3">
-                <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500 shadow-md shadow-primary/30 lift-2">
                   <BookOpen className="w-5 h-5 text-primary-foreground" />
                 </div>
                 <div>
@@ -68,7 +72,7 @@ const CurrentlyStudying = () => {
               <p className="text-sm text-muted-foreground leading-relaxed">{topic.description}</p>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Calendar, MapPin, CheckCircle2 } from "lucide-react";
+import { staggerContainer, fadeUp, defaultViewport } from "@/lib/motion";
 
 const experiences = [
   {
@@ -67,22 +68,25 @@ const Experience = () => {
           </h2>
         </motion.div>
 
-        <div className="relative">
+        <motion.div
+          variants={staggerContainer(0.15)}
+          initial="hidden"
+          whileInView="visible"
+          viewport={defaultViewport}
+          className="relative"
+        >
           <div className="absolute left-0 md:left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-accent to-transparent" />
 
           {experiences.map((exp, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.15 }}
+              variants={fadeUp}
               className="relative ml-8 md:ml-20 mb-12 last:mb-0"
             >
               {/* Timeline Dot */}
-              <div className="absolute -left-8 md:-left-12 w-4 h-4 bg-primary rounded-full glow z-10 mt-8 transform -translate-x-1/2" />
+              <div className="absolute -left-8 md:-left-12 w-4 h-4 bg-primary rounded-full glow z-10 mt-8 transform -translate-x-1/2 transition-transform duration-300 hover:scale-150" />
 
-              <div className="glass-card rounded-xl p-6 md:p-8 hover:border-primary/50 transition-all duration-300">
+              <div className="glass-card card-3d tilt-shine rounded-xl p-6 md:p-8 hover:border-primary/50">
                 <div className="flex flex-wrap items-center gap-3 mb-4">
                   <span className={`px-3 py-1 text-xs font-medium rounded-full ${
                     exp.duration === "Atual"
@@ -128,7 +132,7 @@ const Experience = () => {
                   {exp.skills.map((skill) => (
                     <span
                       key={skill}
-                      className="px-3 py-1 bg-secondary text-secondary-foreground text-xs rounded-md"
+                      className="chip-micro px-3 py-1 bg-secondary text-secondary-foreground text-xs rounded-md"
                     >
                       {skill}
                     </span>
@@ -137,7 +141,7 @@ const Experience = () => {
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
