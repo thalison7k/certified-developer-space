@@ -46,7 +46,7 @@ const FeaturedProject = () => {
                 <p className="text-primary font-medium text-lg">Premium</p>
                 <div className="flex flex-wrap justify-center gap-2 mt-4">
                   {["Python", "Pandas", "APIs REST", "Regex", "Excel"].map((tech) => (
-                    <span key={tech} className="px-3 py-1 bg-primary/10 text-primary text-xs font-medium rounded-full border border-primary/20">
+                    <span key={tech} className="chip-micro px-3 py-1 bg-primary/10 text-primary text-xs font-medium rounded-full border border-primary/20">
                       {tech}
                     </span>
                   ))}
